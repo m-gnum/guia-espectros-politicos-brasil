@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=1280">
 <meta name="description" content="Guia didático do espectro esquerda-direita com foco no Brasil: história, centrão, meritocracia, cinco posições, aspecto por aspecto e um simulador de perfil.">
 <title>Espectro político brasileiro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,6 +50,7 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
+body{min-width:1180px}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{background:var(--bg);color:var(--fg);font:16px/1.7 var(--f-body);margin:0}
@@ -217,18 +218,6 @@ details.gloss dt{font-weight:700;color:var(--accent-ink);margin-top:10px}
 details.gloss dd{margin:2px 0 0;font-size:14.5px}
 .sources li{font-size:13.5px}
 
-@media (max-width:900px){
-  .shell{grid-template-columns:minmax(0,1fr);gap:20px;padding-block:20px 72px}
-  nav.toc{position:static;max-height:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;background:var(--surface)}
-  nav.toc summary{padding:10px 0}
-  .map{grid-template-columns:1fr}
-  h2{font-size:27px}
-}
-@media (max-width:560px){
-  ol.timeline li{grid-template-columns:1fr;gap:4px}
-  .rail,.rail-ends{grid-template-columns:1fr;gap:6px}
-  .rail-ends div{margin-inline:9px}
-}
 </style>
 </head>
 <body>
@@ -713,7 +702,7 @@ details.gloss dd{margin:2px 0 0;font-size:14.5px}
   btn.addEventListener('click',function(){ var next=root.getAttribute('data-theme')==='dark'?'light':'dark'; apply(next); try{localStorage.setItem('espectro-theme',next)}catch(e){} });
 
   /* sumário: recolhido no celular, seção atual em destaque */
-  var det=document.getElementById('toc-details'), mq=window.matchMedia('(max-width:900px)');
+  var det=document.getElementById('toc-details'), mq=window.matchMedia('(max-width:0px)');
   if(mq.matches){ det.open=false; }
   var links=[].slice.call(document.querySelectorAll('nav.toc a')), map={};
   links.forEach(function(a){ map[a.getAttribute('href').slice(1)]=a; a.addEventListener('click',function(){ if(mq.matches) det.open=false; }); });
